@@ -1,3 +1,4 @@
+# Mesh loading and processing
 from scipy import sparse
 #import matplotlib.pyplot as plt
 import os
@@ -81,9 +82,9 @@ def tfeig(X):
     evals = np.diag(evals)
     return evals, evecs, LAP
 
-def load_mesh(path):
+def load_mesh(path): # Loads a mesh from two text files: mesh.vert and mesh.triv. Triangles stored by listing its 3 vertex indices.
     VERT = np.loadtxt(path+'/mesh.vert')
-    TRIV = np.loadtxt(path+'/mesh.triv',dtype='int32')-1
+    TRIV = np.loadtxt(path+'/mesh.triv',dtype='int32')-1 # -1 to convert them into 0-indexed.
     
     return VERT, TRIV
 
@@ -121,8 +122,8 @@ def ismember(T, pts):
     return out
 
 
-def prepare_mesh(VERT,TRIV,dtype='float32'):
-    edges = np.ones(shape=(np.shape(VERT)[0],np.shape(VERT)[0],2),dtype='int32')*-1
+def prepare_mesh(VERT,TRIV,dtype='float32'): # Key function
+    edges = np.ones(shape=(np.shape(VERT)[0],np.shape(VERT)[0],2),dtype='int32')*-1 # ID all edges 
     edges_count = np.zeros(shape=(np.shape(VERT)[0],np.shape(VERT)[0]),dtype='int32')
 
     def setedg(i,j,k):
