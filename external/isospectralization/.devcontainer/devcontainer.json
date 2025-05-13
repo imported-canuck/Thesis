@@ -1,0 +1,15 @@
+{
+  "name": "legacy-tf36",
+  "build": { "dockerfile": "Dockerfile" },
+
+  // VS Code will see this Python automatically
+  "settings": {
+    "python.defaultInterpreterPath": "/usr/local/bin/python"
+  },
+
+  // Optional: re-create a project venv after the container is built
+  "postCreateCommand": "python -m venv .venv && . .venv/bin/activate && pip install -r requirements.txt",
+
+  // Mount repo as the vscode user
+  "remoteUser": "vscode"
+}
