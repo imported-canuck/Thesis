@@ -17,7 +17,7 @@ from shapely.geometry.polygon import Polygon
 import vispy.geometry
 from matplotlib import path
 from scipy.spatial.distance import cdist
-
+from scipy.spatial import Delaunay 
 
 
 def totuple(a):
@@ -305,11 +305,17 @@ def resample(VERT, TRIV, npts=-1):
     sg = np.stack( ( np.asarray(range(bound_pts.shape[0]-1)),np.asarray(range(1,bound_pts.shape[0])) ), axis=1)
     sg = np.concatenate( (sg, [ [bound_pts.shape[0]-1, 0]] ) )
     
-    dt = vispy.geometry.Triangulation(pts, sg)
-    dt.triangulate()
-
-    VV = dt.pts
-    TT = dt.tris
+    try:
+        # Try the built-in VisPy triangulation
+        dt = vispy.geometry.Triangulation(pts, sg)
+        dt.triangulate()
+        VV = dt.pts
+        TT = dt.tris
+    except IndexError:
+        # Fallback to SciPy’s robust Delaunay
+        tri = Delaunay(pts)
+        VV = tri.points
+        TT = tri.simplices
     
     valid_idx = np.unique(TT)
     vV = VV[valid_idx,:]
