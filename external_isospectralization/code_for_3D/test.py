@@ -7,7 +7,7 @@ params = OptimizationParams()
 params.min_eval_loss = 0.0001
 params.evals = [20]
 params.numsteps = 3000
-
+params.volume_reg = 1e3 # Default is 1e1, but this causes protrusion to be inwards rather than outwards.
 
 [VERT, TRIV] = load_mesh('data/round_cuber_1000/');
 mesh = prepare_mesh(VERT,TRIV,'float32')
