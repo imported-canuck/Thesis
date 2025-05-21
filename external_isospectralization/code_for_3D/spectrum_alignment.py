@@ -23,7 +23,7 @@ class OptimizationParams:
             self.curvature_reg = 1e5
             self.smoothness_reg = 5e4
         
-        self.volume_reg = 1e1
+        self.volume_reg = 1e1 # Try 1e3?
         self.l2_reg = 2e6
         
         self.opt_step = 0.00025
