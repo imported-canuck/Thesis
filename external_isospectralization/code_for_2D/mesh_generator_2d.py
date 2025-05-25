@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-mesh_generator_2d.py
+meshmaker2d.py
 
 Reads a thin STL or OBJ of a flat 2D extrusion,
 isolates the top face, and resamples it via a
