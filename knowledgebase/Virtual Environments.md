@@ -15,6 +15,7 @@ The virtual environment has now been created. You can then install dependencies 
 pip install --upgrade pip
 pip install -r requirements.txt
 ```
+Make sure that you're in the virtual environment before installing dependencies. 
 
 ## How to enter a Virtual environment
 Make sure that you're in the same working directory as the virtual environment. Enter the virtual environment "name" with:
