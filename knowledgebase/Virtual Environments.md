@@ -31,5 +31,5 @@ deactivate
 ## How to delete a virtual environment
 Deleting a virtual environment eliminates it for good. You can exit it instead. To delete it:
 ```
-Remove-Item -Recurse -Force .\pt-gpu
+Remove-Item -Recurse -Force .\name
 ```
