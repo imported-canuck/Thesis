@@ -1,4 +1,4 @@
-# Virtual Environments  
+# Virtual Environments (Windows)
 
 ## What is a Virtual Environment
 A virtual environment is a self-contained directory that provides an isolated environment for Python projects. You can set the Python version to be a different one from the global/main Python, and install different libraries (and their versions) within it. Functionally, it's like a mini-Python with potentially different libraries that can be called upon instead of the main Python. 
@@ -6,7 +6,7 @@ A virtual environment is a self-contained directory that provides an isolated en
 ## How to create a Virtual Environment
 First, choose a Python interpreter (must be downloaded on your machine, can check with ```py -0p```), ie. Python 3.11  
 cd into the directory where you want to build the virtual environment  
-In PowerShell, call (where "name" is the name of the venv):  
+In PowerShell (or any terminal), call (where "name" is the name of the venv):  
 ```
 py -3.11 -m venv name
 ```
@@ -21,7 +21,7 @@ Make sure that you're in the virtual environment before installing dependencies.
 Make sure that you're in the same working directory as the virtual environment. Enter the virtual environment "name" with:
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-. .\name\Scripts\Activate.ps1
+.\name\Scripts\Activate.ps1
 ```
 To exit the virtual environment:
 ```
